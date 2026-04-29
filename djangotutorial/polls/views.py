@@ -16,6 +16,8 @@ def results(request, question_id: int):
     return HttpResponse(response)
 
 def detail(request, question_id: int):
+    # we can use Question.get_object_or_404 to replace the try except block,
+    # prefer the blocks as can handle different errors and do a conditional template render
     try:
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
