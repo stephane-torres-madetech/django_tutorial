@@ -1,11 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Question
 
 
 def index(request):
     latest_questions = Question.objects.order_by("-date_published")[:5]
-    output = ", ".join([question.question_text for question in latest_questions])
-    return HttpResponse(f"Hello, world. You're at the polls index. Here are the latest questions {output}")
+    context = {"latest_questions": latest_questions}
+    return render(request, "polls/questions.html", context)
 
 def tester(request):
     return HttpResponse("Testing out adding new route to a urls file")
