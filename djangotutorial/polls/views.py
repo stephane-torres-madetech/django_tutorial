@@ -1,8 +1,11 @@
 from django.http import HttpResponse
+from .models import Question
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    latest_questions = Question.objects.order_by("-date_published")[:5]
+    output = ", ".join([question.question_text for question in latest_questions])
+    return HttpResponse(f"Hello, world. You're at the polls index. Here are the latest questions {output}")
 
 def tester(request):
     return HttpResponse("Testing out adding new route to a urls file")
