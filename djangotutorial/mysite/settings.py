@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CELERY_BROKER_URL = 'pyamqp://guest:guest@localhost:5672//'
+# CELERY_WORKER_MAX_MEMORY_PER_CHILD = 300000
+# CELERY_WORKER_GOSSIP = False
+# CELERY_WORKER_SEND_TASK_EVENTS = False
+# CELERY_TRACK_STARTED = True
+
 
 # Application definition
 
@@ -38,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_beat',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
