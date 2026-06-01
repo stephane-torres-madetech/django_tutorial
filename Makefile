@@ -14,8 +14,6 @@ kill-queue:
 run-celery-beat:
 	cd djangotutorial && celery -A mysite worker -B --loglevel=info --pool=solo       
 
-run-celery-worker:
-	cd djangotutorial && celery -A mysite worker --loglevel=info -P solo
 
 run-migration:
 	cd djangotutorial && python3 manage.py migrate
