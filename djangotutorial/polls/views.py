@@ -27,3 +27,8 @@ def detail(request, question_id: int):
 
 def vote(request, question_id: int):
     return HttpResponse(f"You're voting for question: {question_id}")
+
+
+def custom_404(request, exception):
+    print(exception)
+    return render(request, "polls/404.html")

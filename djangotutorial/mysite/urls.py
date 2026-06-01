@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 # should always us include
 
 urlpatterns = [
+    path('', views.home_view, name="home"),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    
 ]
+
+handler404 = "polls.views.custom_404"
