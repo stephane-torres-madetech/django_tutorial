@@ -15,4 +15,5 @@ app.autodiscover_tasks()
 def setup_periodic_tasks(sender: Celery, **kwargs):
     sender.add_periodic_task(3, test_task.s("This a test"), name="testing")
     sender.add_periodic_task(6, get_questions.s(1), name="testing getting objects from db")
+    sender.add_periodic_task(10, get_questions.s(8), name="testing getting objects from db, not found")
 
