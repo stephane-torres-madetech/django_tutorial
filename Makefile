@@ -1,7 +1,7 @@
 run-app:
 	cd djangotutorial && python3 manage.py runserver
 
-run-rabbitmq:
+run-rabbit:
 # this needs to be a version under 4.3 to work with celery,
 #  there are deprecated breaking changes using a newer version of rabbitmq,
 #  it would be interesting to see what the difference is using redis or sqs as a queue broker.
@@ -12,7 +12,7 @@ kill-queue:
 	docker rm rabbit
 
 run-celery-beat:
-	cd djangotutorial && celery -A mysite worker -B --loglevel=info       
+	cd djangotutorial && celery -A mysite worker -B --loglevel=info --pool=solo       
 
 run-celery-worker:
 	cd djangotutorial && celery -A mysite worker --loglevel=info -P solo
