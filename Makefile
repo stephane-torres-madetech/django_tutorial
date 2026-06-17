@@ -5,7 +5,7 @@ run-rabbit:
 # this needs to be a version under 4.3 to work with celery,
 #  there are deprecated breaking changes using a newer version of rabbitmq,
 #  it would be interesting to see what the difference is using redis or sqs as a queue broker.
-	docker run --name rabbit -d -p 5672:5672 rabbitmq:3.13
+	docker run --name rabbit -d -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
 
 kill-queue:
 	docker kill rabbit
