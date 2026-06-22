@@ -20,3 +20,6 @@ run-migration:
 
 polls-migration:
 	cd djangotutorial && python3 manage.py makemigrations polls 
+
+create-admin-user:
+	cd djangotutorial && python3 manage.py createsuperuser
