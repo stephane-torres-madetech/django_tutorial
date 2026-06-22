@@ -22,8 +22,8 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name="home"),
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')),
 ]
 
 handler404 = "polls.views.custom_404"
